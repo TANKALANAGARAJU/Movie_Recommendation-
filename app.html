@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FILMY FREEZE</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        header {
+            background-color: #00698f;
+            padding: 10px 20px;
+            color: #fff;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        /* Navbar Styling */
+        nav {
+            background-color: #005476;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            display: inline-block;
+        }
+
+        nav a:hover {
+            background-color: #00698f;
+            border-radius: 5px;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        /* Search Bar Styling */
+        .search-bar {
+            width: 50%;
+            margin: 20px auto;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .search-bar input[type="text"] {
+            width: 70%;
+            padding: 10px;
+            font-size: 18px;
+            border: none;
+            border-radius: 10px;
+            outline: none;
+            transition: box-shadow 0.3s ease-in-out;
+        }
+
+        .search-bar input[type="text"]:focus {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .search-bar input[type="submit"] {
+            width: 25%;
+            padding: 10px;
+            font-size: 18px;
+            background-color: #00698f;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .search-bar input[type="submit"]:hover {
+            background-color: #005476;
+        }
+
+        /* Movie Section Styling */
+        .main-con {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            padding: 0 20px;
+            margin-top: 20px;
+        }
+
+        .movie {
+            width: 200px;
+            text-align: center;
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .movie:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .movie img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 15px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .movie img:hover {
+            transform: scale(1.05);
+        }
+
+        .movie h2 {
+            color: #00698f;
+            margin-top: 10px;
+            font-size: 1.5em;
+        }
+
+        .movie p {
+            color: #666;
+            margin-bottom: 10px;
+            font-size: 0.9em;
+        }
+
+        /* Animation for Movie Cards */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .movie {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        /* Add Movie Section Styling */
+        .add-movie-section {
+            display: none;
+        }
+
+        .add-movie-form {
+            width: 50%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .add-movie-form input, .add-movie-form textarea {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .add-movie-form input[type="submit"] {
+            width: 100%;
+            background-color: #00698f;
+            color: #fff;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .add-movie-form input[type="submit"]:hover {
+            background-color: #005476;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>FILMY FREEZE</h1>
+    </header>
+    
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="#" onclick="showHome()">Home</a>
+        <a href="#" onclick="showAddMovie()">Add Movie</a>
+    </nav>
+    
+    <main>
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search movie">
+            <input type="submit" value="Search" onclick="searchMovies()">
+        </div>
+        
+        <!-- Movie List Section -->
+        <section class="main-con" id="movieList">
+            <div class="movie">
+                <a href="https://www.imdb.com/title/tt26233598/?ref_=ext_shr_lnk" target="_blank"><img src="./images/rayyan.jpeg" alt="RAYYAN"></a>
+                <h2>RAYYAN</h2>
+                <p>Genre: Action</p>
+                <p>Release Year: 2024</p>
+                <p>Raayan is a 2024 Indian Tamil-language neo-noir action drama film directed by Dhanush, in his second directorial venture, and produced by Kalanithi Maran.</p>
+            </div>
+            <div class="movie">
+                <a href="https://www.imdb.com/title/tt12735488/?ref_=ext_shr_lnk" target="_blank"><img src="./images/kalki.jpeg" alt="KALKI2898"></a>
+                <h2>KALKI2898</h2>
+                <p>Genre: Action</p>
+                <p>Release Year: 2024</p>
+                <p>Set in a post-apocalyptic world in the year 2898 AD, the film follows a select group on a mission to save lab subject SUM-80's unborn child, Kalki.</p>
+            </div>
+            <!-- Additional movie cards go here -->
+        </section>
+        
+        <!-- Add Movie Section -->
+        <section class="add-movie-section" id="addMovieSection">
+            <div class="add-movie-form">
+                <h2>Add a New Movie</h2>
+                <form id="movieForm">
+                    <input type="text" id="movieTitle" placeholder="Movie Title" required>
+                    <input type="text" id="movieGenre" placeholder="Genre" required>
+                    <input type="number" id="movieYear" placeholder="Release Year" required>
+                    <input type="text" id="movieImage" placeholder="Image URL" required>
+                    <textarea id="movieDescription" placeholder="Movie Description" required></textarea>
+                    <input type="submit" value="Add Movie">
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function searchMovies() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const movies = document.querySelectorAll('.movie');
+
+            movies.forEach(movie => {
+                const title = movie.querySelector('h2').textContent.toLowerCase();
+                if (title.includes(input)) {
+                    movie.style.display = 'block';
+                } else {
+                    movie.style.display = 'none';
+                }
+            });
+        }
+
+        function showHome() {
+            document.getElementById('movieList').style.display = 'flex';
+            document.getElementById('addMovieSection').style.display = 'none';
+        }
+
+        function showAddMovie() {
+            document.getElementById('movieList').style.display = 'none';
+            document.getElementById('addMovieSection').style.display = 'block';
+        }
+
+        document.getElementById('movieForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const title = document.getElementById('movieTitle').value;
+            const genre = document.getElementById('movieGenre').value;
+            const year = document.getElementById('movieYear').value;
+            const image = document.getElementById('movieImage').value;
+            const description = document.getElementById('movieDescription').value;
+
+            const newMovie = `
+                <div class="movie">
+                    <img src="${image}" alt="${title}">
+                    <h2>${title}</h2>
+                    <p>Genre: ${genre}</p>
+                    <p>Release Year: ${year}</p>
+                    <p>${description}</p>
+                </div>
+            `;
+
+            document.getElementById('movieList').innerHTML += newMovie;
+            document.getElementById('movieForm').reset();
+            showHome();
+        });
+    </script>
+</body>
+</html>
